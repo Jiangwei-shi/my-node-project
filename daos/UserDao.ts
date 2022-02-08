@@ -1,14 +1,10 @@
 import UserModel from "../mongoose/UserModel";
 import User from "../models/User";
 import UserDaoI from "../interfaces/UserDao";
+import mongoose from "mongoose";
 
-/**
- * Implements Data Access Object managing data storage
- * of Users
- * @implements {UserDaoI} UserDaoI
- * @property {UserDao} userDao Private single instance of UserDao
- */
 export default class UserDao implements UserDaoI {
+
     private static userDao: UserDao | null = null;
     public static getInstance = (): UserDao => {
         if(UserDao.userDao === null) {
@@ -16,6 +12,7 @@ export default class UserDao implements UserDaoI {
         }
         return UserDao.userDao;
     }
+
     private constructor() {}
     findAllUsers = async (): Promise<User[]> =>
         UserModel.find().exec();
@@ -29,6 +26,4 @@ export default class UserDao implements UserDaoI {
             {$set: user});
     deleteUser = async (uid: string): Promise<any> =>
         UserModel.deleteOne({_id: uid});
-    deleteAllUsers = async (): Promise<any> =>
-        UserModel.deleteMany({});
 };
