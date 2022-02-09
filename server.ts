@@ -1,4 +1,3 @@
-
 /**
  * @file Server file
  */
@@ -8,9 +7,7 @@ import TuitController from "./controllers/TuitController";
 import mongoose from "mongoose";
 
 // connect to the database
-const DB_USERNAME = process.env.DB_USERNAME;
-const DB_PASSWORD = process.env.DB_PASSWORD;
-const connectionString = `mongodb+srv://${DB_USERNAME}:${DB_PASSWORD}@cluster0.m8jeh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+
 mongoose.connect("mongodb://localhost:27017/tuiter");
 
 // create RESTful Web service API
