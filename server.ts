@@ -23,5 +23,5 @@ app.get('/add/:a/:b', (req: Request, res: Response) =>
 const userController = UserController.getInstance(app);
 const tuitController = TuitController.getInstance(app);
 
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 app.listen(process.env.PORT || PORT);
