@@ -56,7 +56,7 @@ export default class TuitController implements TuitControllerI {
     findAllTuits = (req: Request, res: Response) =>
         TuitController.tuitDao.findAllTuits()
             .then((tuits: Tuit[]) => res.json(tuits));
-    
+
     /**
      * Retrieves all tuits from the database for a particular user and returns
      * an array of tuits.
