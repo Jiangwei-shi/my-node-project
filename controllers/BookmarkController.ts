@@ -45,7 +45,7 @@ export default class BookmarkController implements BookmarkControllerI {
      * database
      */
     userBookmarksTuit = (req: Request, res:Response) =>
-        BookmarkController.bookmarkDao.userBookmarksTuit(req.params.tid, req.params.uid)
+        BookmarkController.bookmarkDao.userBookmarksTuit(req.params.uid, req.params.tid)
             .then(bookmarks => res.json(bookmarks));
 
     /**
@@ -56,7 +56,7 @@ export default class BookmarkController implements BookmarkControllerI {
      * on whether deleting the like was successful or not
      */
     userUnbookmarksTuit = (req: Request, res:Response) =>
-        BookmarkController.bookmarkDao.userUnbookmarksTuit(req.params.tid, req.params.uid)
+        BookmarkController.bookmarkDao.userUnbookmarksTuit(req.params.uid, req.params.tid)
             .then(status => res.send(status));
 
     /**

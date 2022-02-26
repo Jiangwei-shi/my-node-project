@@ -13,7 +13,8 @@ import mongoose from "mongoose";
 
 // connect to the database
 //const connectionString = 'mongodb+srv://Jiangwei:Helloworld1946@cluster0.n9n2s.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
-const connectionString = 'mongodb://localhost:27017/tuiter';
+//const connectionString = 'mongodb://localhost:27017/tuiter';
+const connectionString = "mongodb+srv://Jiangwei:Helloworld1946@cluster0.diuor.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 mongoose.connect(connectionString);
 
 

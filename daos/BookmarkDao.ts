@@ -12,14 +12,14 @@ export default class BookmarkDao implements BookmarkDaoI {
         return BookmarkDao.bookmarkDao;
     }
     private constructor() {}
-    findAllTuitsBookmarkedByUser = async (uid:string): Promise<any> =>
+    findAllTuitsBookmarkedByUser = async (uid:string): Promise<Bookmark[]> =>
         BookmarkModel
             .find({bookmarkedBy: uid})
-            .populate("bookmarkedTuit")
+            .populate("tuit")
             .exec();
-    userBookmarksTuit = async (tid: string, uid: string): Promise<Bookmark> =>
-        BookmarkModel.create({bookmarkedTuit: tid, bookmarkedBy: uid});
-    userUnbookmarksTuit = async (tid: string, uid: string): Promise<any> =>
-        BookmarkModel.deleteOne({bookmarkedTuit: tid, bookmarkedBy: uid});
+    userBookmarksTuit = async (uid: string, tid: string): Promise<any> =>
+        BookmarkModel.create({tuit: tid, bookmarkedBy: uid});
+    userUnbookmarksTuit = async (uid: string, tid: string): Promise<any> =>
+        BookmarkModel.deleteOne({tuit: tid, bookmarkedBy: uid});
 
 }
